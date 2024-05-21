@@ -1,31 +1,25 @@
 /* General app styling */
 body {
-    background-color: #e0f7fa;
+    background-color: #f2f9f2;
     font-family: 'Arial', sans-serif;
 }
 
-.stTextArea, .stButton {
-    margin-bottom: 15px;
+.stTextInput, .stButton {
+    margin-bottom: 20px;
 }
 
-.stSpinner {
-    display: flex;
-    justify-content: center;
-}
-
-.stTextArea textarea {
+.stTextInput textarea {
     background-color: #ffffff;
-    border: 1px solid #0288d1;
+    border: 1px solid #c7e2c7;
     border-radius: 5px;
     padding: 10px;
     font-size: 16px;
     height: 400px;
     width: 80% !important;
-    margin-left: 0;
 }
 
 .stButton button {
-    background-color: #4fc3f7;
+    background-color: #7edc7e;
     color: white;
     border: none;
     border-radius: 5px;
@@ -34,33 +28,34 @@ body {
 }
 
 .stButton button:hover {
-    background-color: #29b6f6;
+    background-color: #6ecb6e;
 }
 
 .stTitle {
-    color: #0288d1;
+    color: #7edc7e;
+    font-size: 32px;
 }
 
 .stMarkdown p {
-    color: #0288d1;
+    color: #7edc7e;
 }
 
 /* Sidebar styling */
 .css-18e3th9 {
-    background-color: #e0f7fa;
+    background-color: #f2f9f2;
 }
 
 .css-1d391kg {
-    background-color: #e0f7fa;
+    background-color: #f2f9f2;
 }
 
 /* Custom header styling */
 header {
-    background-color: #4fc3f7;
+    background-color: #7edc7e;
     color: white;
-    padding: 10px 0;
+    padding: 15px 0;
     text-align: center;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
 }
 
@@ -72,7 +67,7 @@ header h1 {
 /* Textarea input styling */
 textarea {
     background-color: #ffffff;
-    border: 1px solid #0288d1;
+    border: 1px solid #c7e2c7;
     border-radius: 5px;
     padding: 10px;
     font-size: 14px;
@@ -80,7 +75,7 @@ textarea {
 
 /* Button styling */
 button {
-    background-color: #4fc3f7;
+    background-color: #1ac01a;
     color: white;
     border: none;
     border-radius: 5px;
@@ -89,5 +84,16 @@ button {
 }
 
 button:hover {
-    background-color: #29b6f6;
+    background-color: #6ecb6e;
+}
+
+/* Output box styling */
+.stTextArea.stTextAreaOutput {
+    background-color: #043f1d;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    height: 400px;
+    width: 80% !important;
 }
