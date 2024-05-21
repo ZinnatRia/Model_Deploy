@@ -87,20 +87,20 @@ def get_model():
 tokenizer, model = get_model()
 
 # Add a title and description to the app
-st.title("Clinical Text Mortality Prediction")
+st.title("Classifying Clinical Text: Predicting Health Conditions")
 st.markdown("""
-This app uses a fine-tuned BERT model to predict mortality based on clinical text input.
+This app uses a fine-tuned BERT model to predict disease based on clinical text input.
 Please enter clinical text below and click the "Predict" button to see the prediction.
 """)
 
 # Create a sidebar with additional information
 st.sidebar.header("About")
 st.sidebar.markdown("""
-This application is a demonstration of a BERT model fine-tuned for mortality prediction using clinical text.
+This application is a demonstration of a BERT model fine-tuned for disease prediction using clinical text.
 """)
 
 # Get user input
-user_input = st.text_area('Enter Clinical Text for Mortality Prediction', height=400)
+user_input = st.text_area('Enter Clinical Text for disease Prediction', height=400)
 button = st.button("Predict")
 
 # Define the prediction labels
@@ -128,15 +128,21 @@ if user_input and button:
             # Display user input and preprocessed text side by side
             col1, col2 = st.columns(2)
             with col1:
-                st.write("User Input:")
+                #st.write("User Input:")
                 st.text_area("User Input Text", user_input, height=400, max_chars=None, key=None)
             with col2:
-                st.write("Preprocessed Text:")
+                #st.write("Preprocessed Text:")
                 st.text_area("Preprocessed Text", preprocessed_text, height=400, max_chars=None, key=None)
             
             # Display prediction
             st.write("Prediction:")
-            st.success(prediction)
+            #st.success(prediction)
+            # Display prediction
+            st.markdown(f'<div style="background-color: #4CAF50; padding: 10px; border-radius: 5px;"><span style="color:white; font-weight:bold">{prediction}</span></div>', unsafe_allow_html=True)
+
+
+
+
             
         except Exception as e:
             st.error(f"An error occurred: {e}")
