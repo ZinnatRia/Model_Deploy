@@ -116,23 +116,28 @@ d = {
 if user_input and button:
     with st.spinner('Predicting...'):
         try:
-            # Show raw user input
-            st.write("Raw User Input:")
-            st.text_area("Raw Text", user_input, height=200, max_chars=None, key=None)
-
             # Preprocess text
             preprocessed_text = preprocess_text(user_input)
-
-            # Display preprocessed text
-            st.write("Preprocessed Text:")
-            st.text_area("Preprocessed Text", preprocessed_text, height=200, max_chars=None, key=None)
 
             # Tokenize and predict
             test_sample = tokenizer([preprocessed_text], padding=True, truncation=True, max_length=512, return_tensors='pt')
             output = model(**test_sample)
-            st.write("Logits: ", output.logits)
             y_pred = np.argmax(output.logits.detach().numpy(), axis=1)
-            st.success(f"Prediction: {d[y_pred[0]]}")
+            prediction = d[y_pred[0]]
+
+            # Display user input and preprocessed text side by side
+            col1, col2 = st.columns(2)
+            with col1:
+                st.write("User Input:")
+                st.text_area("User Input Text", user_input, height=400, max_chars=None, key=None)
+            with col2:
+                st.write("Preprocessed Text:")
+                st.text_area("Preprocessed Text", preprocessed_text, height=400, max_chars=None, key=None)
+            
+            # Display prediction
+            st.write("Prediction:")
+            st.success(prediction)
+            
         except Exception as e:
             st.error(f"An error occurred: {e}")
 
