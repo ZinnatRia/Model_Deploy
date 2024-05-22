@@ -7,6 +7,21 @@ from cleantext import clean
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+def set_background_color():
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-color: #97E6F5;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+# Call the function to set the background color
+set_background_color()
+
 # Preprocessing functions
 def remove_repeated_punctuation(text):
     cleaned_text = []
@@ -100,8 +115,8 @@ This application is a demonstration of a BERT model fine-tuned for disease predi
 """)
 
 # Get user input
-user_input = st.text_area('Enter Clinical Text for disease Prediction', height=400)
-button = st.button("Predict")
+user_input = st.text_area('**Enter Clinical Text for disease Prediction**', height=400)
+button = st.button("**Predict**")
 
 # Define the prediction labels
 d = {
@@ -126,16 +141,23 @@ if user_input and button:
             prediction = d[y_pred[0]]
 
             # Display user input and preprocessed text side by side
+            # col1, col2 = st.columns(2)
+            # with col1:
+            #     #st.write("User Input:")
+            #     st.text_area("User Input Text", user_input, height=400, max_chars=None, key=None)
+            # with col2:
+            #     #st.write("Preprocessed Text:")
+            #     st.text_area("Preprocessed Text", preprocessed_text, height=400, max_chars=None, key=None)
             col1, col2 = st.columns(2)
             with col1:
-                #st.write("User Input:")
-                st.text_area("User Input Text", user_input, height=400, max_chars=None, key=None)
+                
+                st.text_area("**User Input Text:**", user_input, height=400, max_chars=None, key=None)
             with col2:
-                #st.write("Preprocessed Text:")
-                st.text_area("Preprocessed Text", preprocessed_text, height=400, max_chars=None, key=None)
+            
+                st.text_area("**Preprocessed Text:**", preprocessed_text, height=400, max_chars=None, key=None)    
             
             # Display prediction
-            st.write("Prediction:")
+            st.write("**Prediction:**")
             #st.success(prediction)
             # Display prediction
             st.markdown(f'<div style="background-color: #4CAF50; padding: 10px; border-radius: 5px;"><span style="color:white; font-weight:bold">{prediction}</span></div>', unsafe_allow_html=True)
