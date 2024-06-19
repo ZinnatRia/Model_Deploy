@@ -115,7 +115,7 @@ This application is a demonstration of a BERT model fine-tuned for disease predi
 """)
 
 # Get user input
-user_input = st.text_area('**Enter Clinical Text for disease Prediction**', height=400)
+user_input = st.text_area('**Enter Clinical Text for disease Prediction**', height=300)
 button = st.button("**Predict**")
 
 # Define the prediction labels
